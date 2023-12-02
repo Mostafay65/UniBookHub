@@ -1,0 +1,52 @@
+@using Microsoft.AspNetCore.Identity
+@model List<ApplicationUser>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<h2>All @TempData.Peek("User").ToString()s</h2>
+
+<table class="table table-hover text-center align-middle">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Password</th>
+        @if (TempData.Peek("User").ToString() != "Admin")
+        {
+            <th scope="col">College</th>
+            <th scope="col">Accessed</th>
+        }
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr class="table-primary">
+            <td>@user.Name</td>
+            <td>@user.UserName</td>
+            <td>@user.Password</td>
+            @if (TempData.Peek("User").ToString() != "Admin")
+            {
+                @if (user.College is null)
+                {
+                    <td>---------</td>
+                }
+                else
+                {
+                    <td>@user.College.Name</td>
+                }
+                <td style="color: @(user.Accessed ? "green" : "red")">@user.Accessed</td>
+            }
+            <td>
+                <a type="button" asp-action="Delete" asp-route-Id="@user.Id" asp-route-OldRole="@TempData.Peek("User")" class="btn btn-danger flex-grow-1">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-controller="Role" asp-action="Index" class="btn btn-success">Back To Role</a>

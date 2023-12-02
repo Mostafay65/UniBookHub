@@ -1,0 +1,63 @@
+@model UniBookHub.ViewModels.UserRegisterViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+    string Role = TempData["User"].ToString();
+    var list = (TempData["Colleges"] as SelectList);
+}
+
+<h2>New @Role </h2>
+
+
+<form asp-action="Register" asp-controller="Account" asp-route-Role="@Role" method="post">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" class="form-control"/>
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control"/>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <br/>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" class="form-control"/>
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <br/>
+    @if (Role != "Admin")
+    {
+        <div class="form-group">
+            <label asp-for="CollegeId"></label>
+            <select asp-for="CollegeId" asp-items="@list" class="form-select">
+                <option value="0">Select College</option>
+            </select>
+            <span asp-validation-for="CollegeId" class="text-danger"></span>
+        </div>
+        <br/>
+    }
+
+    <div class="form-group">
+        <input type="submit" value="New @Role" class="btn btn-primary"/>
+        <a asp-action="index" asp-controller="Role" class="btn btn-outline-primary me-1 flex-grow-1">Back </a>
+    </div>
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+}
