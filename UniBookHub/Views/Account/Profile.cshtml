@@ -1,0 +1,63 @@
+@model UniBookHub.Models.ApplicationUser?
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_StudentLayout";
+}
+
+<!-- content-header -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <h1 class="m-0">Student Profile</h1>
+        </div>
+    </div>
+</div>
+<!-- /.content-header -->
+<!-- content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="container profile p-3">
+
+            <span class="firstLetter">
+                @(Model.Name.ToUpper()[0]) @(Model.Name.ToUpper()[Model.Name.IndexOf(" ") + 1])
+            </span>
+            <h3>@Model.Name</h3>
+            <div class="block-accordion">
+                <div class="accordion">
+                    <p>More Details <i class="fa fa-chevron-down" aria-hidden="true"></i> </p>
+                    <div class="main row">
+                        <div class="col">
+                            <label>Username</label>
+                            <p>@Model.UserName</p>
+                        </div>
+
+                        <div class="col">
+                            <label>collage</label>
+                            <p>@Model.College.Name</p>
+                        </div>
+
+                        <div class="col">
+                            <label>Department</label>
+                            <p>Information Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.content -->
+</div>
+
+@section Profile
+{
+    <script type="text/javascript">
+            $("div.accordion p:first-of-type").click(function () {
+                $(this).parent().toggleClass('collapsed');
+                $(this).next(".main").slideToggle(500);
+            });
+    </script>
+}

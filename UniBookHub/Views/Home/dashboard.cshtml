@@ -1,0 +1,166 @@
+﻿@using UniBookHub.Data
+@using System.Security.Claims
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext Context
+@{
+    ViewData["Title"] = "Home Page";
+    if (User.IsInRole("Admin") || User.IsInRole("IT Administrator"))
+    {
+        Layout = "_AdminLayout";
+    }
+    else if (User.IsInRole("Student"))
+    {
+        Layout = "_StudentLayout";
+    }
+    ApplicationUser user = Context.Users.Include(u=>u.Courses).FirstOrDefault(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+}
+
+
+@if (User.IsInRole("Admin"))
+{
+    
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <h1 class="m-0">Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-header -->
+        <!-- content -->
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- small box -->
+                    <div class="small-box bg-info p-2">
+                        <div class="inner">
+                            <h3>@((int)TempData["Colleges"])</h3>
+                            <p>Collage</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-building-columns"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ./col -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- small box -->
+                    <div class="small-box bg-success p-2">
+                        <div class="inner">
+                            <h3>@((int)TempData["Courses"])</h3>
+                            <p>Course</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- small box -->
+                    <div class="small-box bg-warning p-2">
+                        <div class="inner">
+                            <h3>@((int)TempData["Students"])</h3>
+                            <p>Student</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+        </div>
+    </section>
+}
+else if (User.IsInRole("IT Administrator"))
+{
+    
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <h1 class="m-0">Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-header -->
+        <!-- content -->
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <!-- small box -->
+                    <div class="small-box bg-success p-2">
+                        <div class="inner">
+                            <h3>@((int)TempData["Courses"])</h3>
+                            <p>Course</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-md-6 col-12">
+                    <!-- small box -->
+                    <div class="small-box bg-warning p-2">
+                        <div class="inner">
+                            <h3>@((int)TempData["Students"])</h3>
+                            <p>Student</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+        </div>
+    </section>
+}
+
+else if (User.IsInRole("Student"))
+{
+    <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <h1 class="m-0">My Courses</h1>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-header -->
+        <!-- content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="col-md-12 contentViewer">
+
+
+                    <div class="card-deck m-2">
+                        @foreach (Course course in user.Courses)
+                        {
+                            <div class="card mb-3">
+                                <img class="card-img-top" src="~/images/Course.jpeg" alt="Software Engineering">
+                                <div class="card-header bg-light">
+                                    <strong>@course.Code: @course.Name</strong>
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <a type="button" class="btn btn-outline-primary btn-block" asp-controller="Course" asp-action="Details" asp-route-id="@course.ID" asp-r>Read more</a>
+                                </div>
+                            </div>    
+                        }
+                    </div>
+
+                </div>
+            </div>
+        <!-- /.content -->
+        </div>
+}

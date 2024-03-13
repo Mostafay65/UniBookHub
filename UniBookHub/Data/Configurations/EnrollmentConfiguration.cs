@@ -10,7 +10,7 @@ public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
     {
         builder.ToTable("Enrollments");
         builder.Property(c => c.StudentId).HasColumnName("StudentId");
-        builder.Property(c => c.SubjectId).HasColumnName("SubjectId");
-        builder.HasKey(e => new { e.StudentId, e.SubjectId });
+        builder.Property(c => c.CourseId).HasColumnName("CourseId");
+        builder.HasKey(e => new { e.StudentId, e.CourseId });
     }
 }

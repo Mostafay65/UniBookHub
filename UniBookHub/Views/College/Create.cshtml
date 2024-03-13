@@ -1,35 +1,48 @@
 @model UniBookHub.Models.College
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create College";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>College</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<!-- content-header -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Add Collage</h1>
             </div>
-            <br/>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+<!-- /.content-header -->
+<!-- content -->
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<section class="content">
+    <div class="container-fluid">
+        <div class="card p-3">
+            <form asp-action="Create" class="col-3 mx-auto text-center">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label text-lg"></label>
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="NumberOfLevels" class="form-label text-lg"></label>
+                    <input asp-for="NumberOfLevels" class="form-control"/>
+                    <span asp-validation-for="NumberOfLevels" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-primary pr-3 pl-3 btn-lg"/>
+                    <a asp-action="Index" id="btn-back" class="btn btn-outline-primary pr-3 pl-3 btn-lg">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

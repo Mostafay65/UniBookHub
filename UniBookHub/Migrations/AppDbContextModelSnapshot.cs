@@ -47,6 +47,26 @@ namespace UniBookHub.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "318e5c84-5ada-49b0-9dcf-dec9fcaea02a",
+                            Name = "Student",
+                            NormalizedName = "STUDENT"
+                        },
+                        new
+                        {
+                            Id = "f0359250-ca2d-40bc-ae90-c7f7569ca72d",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "f558d1ab-3d1d-40c4-b610-d6f047649e39",
+                            Name = "IT Administrator",
+                            NormalizedName = "IT ADMINISTRATOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -254,29 +274,15 @@ namespace UniBookHub.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("Name");
 
+                    b.Property<int>("NumberOfLevels")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.ToTable("Colleges", (string)null);
                 });
 
-            modelBuilder.Entity("UniBookHub.Models.Enrollment", b =>
-                {
-                    b.Property<string>("StudentId")
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("StudentId");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int")
-                        .HasColumnName("SubjectId");
-
-                    b.HasKey("StudentId", "SubjectId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.ToTable("Enrollments", (string)null);
-                });
-
-            modelBuilder.Entity("UniBookHub.Models.Subject", b =>
+            modelBuilder.Entity("UniBookHub.Models.Course", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -304,6 +310,9 @@ namespace UniBookHub.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Description");
 
+                    b.Property<int>("LevelNumber")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -314,7 +323,24 @@ namespace UniBookHub.Migrations
 
                     b.HasIndex("CollegeId");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Courses", (string)null);
+                });
+
+            modelBuilder.Entity("UniBookHub.Models.Enrollment", b =>
+                {
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("StudentId");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int")
+                        .HasColumnName("CourseId");
+
+                    b.HasKey("StudentId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Enrollments", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -378,29 +404,10 @@ namespace UniBookHub.Migrations
                     b.Navigation("College");
                 });
 
-            modelBuilder.Entity("UniBookHub.Models.Enrollment", b =>
-                {
-                    b.HasOne("UniBookHub.Models.ApplicationUser", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("UniBookHub.Models.Subject", "Subject")
-                        .WithMany()
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Student");
-
-                    b.Navigation("Subject");
-                });
-
-            modelBuilder.Entity("UniBookHub.Models.Subject", b =>
+            modelBuilder.Entity("UniBookHub.Models.Course", b =>
                 {
                     b.HasOne("UniBookHub.Models.College", "College")
-                        .WithMany("Subjects")
+                        .WithMany("Courses")
                         .HasForeignKey("CollegeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -408,11 +415,40 @@ namespace UniBookHub.Migrations
                     b.Navigation("College");
                 });
 
+            modelBuilder.Entity("UniBookHub.Models.Enrollment", b =>
+                {
+                    b.HasOne("UniBookHub.Models.Course", "Course")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("UniBookHub.Models.ApplicationUser", "Student")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("UniBookHub.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Enrollments");
+                });
+
             modelBuilder.Entity("UniBookHub.Models.College", b =>
                 {
-                    b.Navigation("Students");
+                    b.Navigation("Courses");
 
-                    b.Navigation("Subjects");
+                    b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("UniBookHub.Models.Course", b =>
+                {
+                    b.Navigation("Enrollments");
                 });
 #pragma warning restore 612, 618
         }

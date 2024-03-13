@@ -1,0 +1,152 @@
+﻿@using UniBookHub.Data
+@using System.Security.Claims
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext Context
+@{
+    ApplicationUser user = Context.Users.Include(u=>u.Courses).FirstOrDefault(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniBookHub</title>
+
+    <link rel="stylesheet" href="~/css/fontawesome.min.css"/>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/UniBookHub.min.css">
+    <link rel="stylesheet" href="~/css/StudentProfile.css">
+    <style>
+        .card-deck{
+            margin-top: 5px;
+            margin-left: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-gap: .25rem;
+        }
+        .contentViewer{
+            background: #fff;
+            padding: 10px 0;
+            border-radius: 13px;
+        }
+        .card-img, .card-img-top{
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+       </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" style="font-size: 20px" data-widget="pushmenu" asp-action="Index" asp-controller="Home" role="button"><i class="fa fa-bars"></i> UniBookHub</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fa fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a asp-action="Index" asp-controller="Home"  class="brand-link">
+            <img src="~/images/logo.png" alt="UniBookHub Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">UniBookHub</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="~/images/student.png" class="img-circle elevation-2" alt="Student Image">
+                </div>
+                <div class="info">
+                    <a asp-controller="Account" asp-action="Profile" asp-route-id="@user.Id" class="d-block">@user.Name</a>
+                </div>
+            </div>
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-book-open"></i>
+                            <p>
+                                My Courses
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @foreach (Course course in user.Courses)
+                            {
+                                <li class="nav-item">
+                                    <a asp-controller="Course" asp-action="Details" asp-route-id="@course.ID" class="nav-link">
+                                        <i class="fa fa-book nav-icon"></i>
+                                        <p>@course.Name</p>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-gear"></i>
+                            <p>
+                                Settings
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="Account" asp-action="LogOut" class="nav-link">
+                                    <i class="fa fa-right-from-bracket nav-icon"></i>
+                                    <p>Logout</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper pb-3">
+        @RenderBody()
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Main Footer -->
+    <footer class="main-footer text-center">
+        <strong>Copyright &copy; 2023-2024 <a href="#">UniBookHub</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+<script src="js/JQuery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/UniBookHub.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", false)
+@RenderSection("Profile", false)
+</body>
+</html>

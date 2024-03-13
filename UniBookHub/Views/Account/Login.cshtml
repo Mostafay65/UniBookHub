@@ -2,41 +2,62 @@
 @model UniBookHub.ViewModels.UserLoginViewModel
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
+    Layout = null;
 }
 
-<h2>Login</h2>
 
-<form asp-action="Login" asp-controller="Account" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniBookHub Login</title>
+    <link rel="stylesheet" href="~/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/UniBookHub.min.css">
+    <link rel="stylesheet" href="~/css/Login.css">
+</head>
+<body>    
+    <h2 class="text-center mb-3">UniBookHub</h2>
+    <div class="login_page pb-4">
+            <div class="header">
+                Login
+            </div>
+        <p class="text-center text-secondary">Sign in to start your session</p>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form_page">
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <label>Username</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        </div>
+                        <input asp-for="UserName" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <label>Password</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <input asp-for="Password" class="form-control"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;align-items: baseline;">
+                        <input style="margin: 0 5px" asp-for="RememberMe"/>
+                        <label class="align-middle" asp-for="RememberMe"></label>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block mt-3" value="Login"/>
+                </form>
+            </div>
+        </div>
+           
 
-    <div class="form-group">
-        <label asp-for="UserName"></label>
-        <input asp-for="UserName" class="form-control"/>
-        <span asp-validation-for="UserName" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control"/>
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="RememberMe"></label>
-        <input asp-for="RememberMe"/>
-    </div>
-    <br/>
-    <div class="form-group">
-        <input type="submit" value="Login" class="btn btn-primary"/>
-    </div>
-</form>
-
-<div>
-    <a asp-action="Register">Register</a>
-</div>
-
-@section Scripts
-{
-    <partial name="_ValidationScriptsPartial"/>
-}
+    
+<script src="~/js/JQuery-3.3.1.min.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/UniBookHub.min.js"></script>
+<script src="~/js/Script.js"></script>
+<partial name="_ValidationScriptsPartial"/> 
+</body>
+</html>

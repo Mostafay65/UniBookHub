@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets/UniBookHub.bundle.scp.css"
     },
     {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/css/Login.css",
+      "PackagePath": "staticwebassets/css/Login.css"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/css/StudentProfile.css",
+      "PackagePath": "staticwebassets/css/StudentProfile.css"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/css/UniBookHub.min.css",
+      "PackagePath": "staticwebassets/css/UniBookHub.min.css"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/css/fontawesome.min.css",
+      "PackagePath": "staticwebassets/css/fontawesome.min.css"
+    },
+    {
       "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -13,12 +37,52 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/images/Course.jpeg",
+      "PackagePath": "staticwebassets/images/Course.jpeg"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/images/admin.png",
+      "PackagePath": "staticwebassets/images/admin.png"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/images/logo.png",
+      "PackagePath": "staticwebassets/images/logo.png"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/images/student.png",
+      "PackagePath": "staticwebassets/images/student.png"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/js/JQuery-3.3.1.min.js",
+      "PackagePath": "staticwebassets/js/JQuery-3.3.1.min.js"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/js/UniBookHub.min.js",
+      "PackagePath": "staticwebassets/js/UniBookHub.min.js"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/js/bootstrap.min.js"
+    },
+    {
       "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
     {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/lib/.DS_Store",
+      "PackagePath": "staticwebassets/lib/.DS_Store"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/lib/bootstrap/.DS_Store",
+      "PackagePath": "staticwebassets/lib/bootstrap/.DS_Store"
+    },
+    {
       "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/lib/bootstrap/LICENSE",
       "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/lib/bootstrap/dist/.DS_Store",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/.DS_Store"
     },
     {
       "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
@@ -243,6 +307,66 @@
     {
       "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/lib/jquery/dist/jquery.min.map",
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-brands-400.eot",
+      "PackagePath": "staticwebassets/webfonts/fa-brands-400.eot"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-brands-400.svg",
+      "PackagePath": "staticwebassets/webfonts/fa-brands-400.svg"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-brands-400.ttf",
+      "PackagePath": "staticwebassets/webfonts/fa-brands-400.ttf"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-brands-400.woff",
+      "PackagePath": "staticwebassets/webfonts/fa-brands-400.woff"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-brands-400.woff2",
+      "PackagePath": "staticwebassets/webfonts/fa-brands-400.woff2"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-regular-400.eot",
+      "PackagePath": "staticwebassets/webfonts/fa-regular-400.eot"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-regular-400.svg",
+      "PackagePath": "staticwebassets/webfonts/fa-regular-400.svg"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-regular-400.ttf",
+      "PackagePath": "staticwebassets/webfonts/fa-regular-400.ttf"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-regular-400.woff",
+      "PackagePath": "staticwebassets/webfonts/fa-regular-400.woff"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-regular-400.woff2",
+      "PackagePath": "staticwebassets/webfonts/fa-regular-400.woff2"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-solid-900.eot",
+      "PackagePath": "staticwebassets/webfonts/fa-solid-900.eot"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-solid-900.svg",
+      "PackagePath": "staticwebassets/webfonts/fa-solid-900.svg"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-solid-900.ttf",
+      "PackagePath": "staticwebassets/webfonts/fa-solid-900.ttf"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-solid-900.woff",
+      "PackagePath": "staticwebassets/webfonts/fa-solid-900.woff"
+    },
+    {
+      "Id": "/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/wwwroot/webfonts/fa-solid-900.woff2",
+      "PackagePath": "staticwebassets/webfonts/fa-solid-900.woff2"
     },
     {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.UniBookHub.Microsoft.AspNetCore.StaticWebAssets.props",

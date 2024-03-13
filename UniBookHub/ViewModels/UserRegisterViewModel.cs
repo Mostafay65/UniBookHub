@@ -4,8 +4,9 @@ namespace UniBookHub.ViewModels;
 
 public class UserRegisterViewModel
 {
-    public string? Name{ get; set; }
-    public string UserName{ get; set; }
+    public string Name{ get; set; }
+    
+    public string Username{ get; set; }
     
     [DataType(DataType.Password)]
     // [Compare("ConfirmPassword")]

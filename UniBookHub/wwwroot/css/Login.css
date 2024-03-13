@@ -1,0 +1,25 @@
+body{
+    background: #e9ecef;
+}
+h2{
+    margin-top: 4rem;
+}
+.login_page{
+    width: 400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    background: #fff;
+    border-radius: 5px;
+}
+.header{
+    font-size: 40px;
+    font-weight: bold;
+    color: #666;
+    text-align: center;
+}
+.form_page label{
+    font-size: 20px;
+    font-weight: bold;
+    color: #888;
+}
+

@@ -2,11 +2,13 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using UniBookHub.Data;
 using UniBookHub.Models;
 using UniBookHub.ViewModels;
 
 namespace UniBookHub.Controllers;
+
 
 public class AccountController : Controller
 {
@@ -78,7 +80,7 @@ public class AccountController : Controller
         {
             var NewUser = new ApplicationUser();
             NewUser.Name = userRegister.Name;
-            NewUser.UserName = userRegister.UserName;
+            NewUser.UserName = userRegister.Username;
             NewUser.Password = userRegister.Password;
             NewUser.CollegeId = userRegister.CollegeId;
             var result = await _userManager.CreateAsync(NewUser, userRegister.Password);
@@ -91,7 +93,8 @@ public class AccountController : Controller
             foreach (var Error in result.Errors)
                 ModelState.AddModelError("", Error.Description);
         }
-
+        
+        
         if (userRegister.CollegeId==0)
         {
             ModelState.AddModelError("CollegeId","Please Select College");
@@ -106,5 +109,9 @@ public class AccountController : Controller
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
-    
+
+    public IActionResult Profile(string id)
+    {
+        return View(_context.Users.Include(u=>u.College).FirstOrDefault(u => u.Id == id));
+    }
 }

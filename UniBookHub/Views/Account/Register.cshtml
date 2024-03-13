@@ -2,62 +2,132 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
-    string Role = TempData["User"].ToString();
-    var list = (TempData["Colleges"] as SelectList);
+    Layout = "_AdminLayout";
+    var Role = TempData["User"].ToString();
+    var list = TempData["Colleges"] as SelectList;
 }
+<style>
+        .fa-eye, .fa-eye-slash{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 10;
+            cursor: pointer;
+        }
+    </style>
 
-<h2>New @Role </h2>
-
-
-<form asp-action="Register" asp-controller="Account" asp-route-Role="@Role" method="post">
-
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control"/>
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <br/>
-
-    <div class="form-group">
-        <label asp-for="UserName"></label>
-        <input asp-for="UserName" class="form-control"/>
-        <span asp-validation-for="UserName" class="text-danger"></span>
-    </div>
-    <br/>
-
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control"/>
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <br/>
-    <div class="form-group">
-        <label asp-for="ConfirmPassword"></label>
-        <input asp-for="ConfirmPassword" class="form-control"/>
-        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-    </div>
-    <br/>
-    @if (Role != "Admin")
-    {
-        <div class="form-group">
-            <label asp-for="CollegeId"></label>
-            <select asp-for="CollegeId" asp-items="@list" class="form-select">
-                <option value="0">Select College</option>
-            </select>
-            <span asp-validation-for="CollegeId" class="text-danger"></span>
+<!-- content-header -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Add @Role</h1>
+            </div>
         </div>
-        <br/>
-    }
-
-    <div class="form-group">
-        <input type="submit" value="New @Role" class="btn btn-primary"/>
-        <a asp-action="index" asp-controller="Role" class="btn btn-outline-primary me-1 flex-grow-1">Back </a>
     </div>
-</form>
+</div>
+<!-- /.content-header -->
+<!-- content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card p-3">
+            <form asp-action="Register" asp-route-Role="@Role" class="col-6">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label text-lg">Name</label>
+                    <input type="text" asp-for="Name" class="form-control" id="IT administrator name">
+                </div>
+                @* <span asp-validation-for="Name" class="text-danger"></span> *@
+
+
+                @if (Role != "Admin")
+                {
+                    <div class="mb-3">
+                        <label asp-for="CollegeId" class="form-label text-lg"></label>
+                        <select asp-for="CollegeId" asp-items="@list" class="form-select">
+                            <option value="0">Select College</option>
+                        </select>
+                    </div>
+                        @* <span asp-validation-for="CollegeId" class="text-danger"></span> *@
+                }
+
+                <label asp-for="Username"class="form-label text-lg"></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                    </div>
+                    <input asp-for="Username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
+                @* <span asp-validation-for="Username" class="text-danger"></span> *@
+
+
+                <label asp-for="Password" class="form-label text-lg"></label>
+                <div class="input-group mb-3 position-relative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+
+                    <input asp-for="Password" id="pass" class="form-control" placeholder="Password">
+                    <i class="fa fa-eye text-lg text-secondary" id="pass-eye" style="display: none"></i>
+                    <i class="fa fa-eye-slash text-lg text-secondary" id="pass-eye-slash"></i>
+                </div>
+                @* <span asp-validation-for="Password" class="text-danger d-block"></span> *@
+
+                <label asp-for="ConfirmPassword" class="form-label text-lg"></label>
+                <div class="input-group mb-3 position-relative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <input asp-for="ConfirmPassword" id="coPass" class="form-control" placeholder="Confirm Password">
+                    <i class="fa fa-eye text-lg text-secondary" id="coPass-eye" style="display: none"></i>
+                    <i class="fa fa-eye-slash text-lg text-secondary" id="coPass-eye-slash"></i>
+                </div>
+                @* <span asp-validation-for="ConfirmPassword" class="text-danger"></span> *@
+
+                <button type="submit" class="btn btn-primary pr-5 pl-5 btn-lg">Add</button>
+                <a asp-controller="Role" asp-action="UsersInRole" asp-route-Role="@Role" id="btn-back" class="btn btn-outline-primary pr-5 pl-5 btn-lg">Back</a>
+            </form>
+        </div>
+    </div>
+</section>
 
 @section Scripts
 {
     <partial name="_ValidationScriptsPartial"/>
+    <script>
+            $("#pass-eye").click(function(){
+                $(this).hide();
+                $("#pass-eye-slash").show();
+                $("#pass").attr("type", "password");
+            });
+            
+            $("#pass-eye-slash").click(function(){
+                $(this).hide();
+                $("#pass-eye").show();
+                $("#pass").attr("type", "text");
+            });
+            
+            $("#coPass-eye").click(function(){
+                $(this).hide();
+                $("#coPass-eye-slash").show();
+                $("#coPass").attr("type", "password");
+            });
+            
+            $("#coPass-eye-slash").click(function(){
+                $(this).hide();
+                $("#coPass-eye").show();
+                $("#coPass").attr("type", "text");
+            });
+            
+            $("#btn-back").on("click", function() {
+                window.history.back();
+            });
+        </script>
 }

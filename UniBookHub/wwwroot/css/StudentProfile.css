@@ -1,0 +1,94 @@
+.profile{
+    background: #fff;
+    padding: 10px 0;
+    border-radius: 13px;
+}
+.profile .Address{
+    margin-bottom: 40px;
+    padding: 0;
+}
+.profile .Address a,.checkout .Address i{
+    color: #444;
+    font-size: 17px;
+    text-decoration: none;
+}
+.profile .Address a:last-of-type,
+.profile .Address a:hover{
+    color: #ff9815;
+}
+.profile h3{
+    font-size: 32px;
+    font-weight: bold;
+    display: inline-block;
+    color: #444;
+    margin-left: 15px;
+}
+.profile .firstLetter{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-color: #e3e3e3;
+    color: #007bff;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 120px;
+    text-align: center;
+    border-radius: 50%;
+}
+.profile .nameInfo{
+    margin-top: 30px;
+}
+.profile label{
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-size: 17px;
+    color: #727376;
+}
+
+.profile .block-accordion{
+    margin-top: 40px;
+}
+.profile div.accordion{
+    background-color: #fff;
+    padding: 15px 0;
+    margin-bottom: -1px;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+}
+.profile div.accordion > p:first-of-type{
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    color: #333;
+}
+.profile div.collapsed > p:first-of-type{
+    color: #007bff;
+}
+.profile div.accordion > p:first-of-type:hover{
+    color: #007bff
+}
+.profile div.accordion > p:first-of-type i.fa-chevron-down{
+    position: absolute;
+    right: 0;
+    top: 3px
+}
+.profile div.accordion .main{
+    margin-top: 20px;
+    line-height: 1.4;
+    display: none;
+    overflow: hidden;
+}
+.profile div.accordion .main div{
+    float: left;
+}
+.profile .collapsed p:first-of-type{
+    color: #007bff;
+}
+.profile .collapsed i.fa-chevron-down{
+    transform: rotate(180deg);
+    transition: all 0.5s
+    
+}

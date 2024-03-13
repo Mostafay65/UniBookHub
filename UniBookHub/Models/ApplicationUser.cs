@@ -9,5 +9,5 @@ public class ApplicationUser : IdentityUser
     public bool Accessed { get; set; }
     public int? CollegeId { get; set; }
     public College? College { get; set; }
-    public IEnumerable<Subject> Subjects { get; set; } = new List<Subject>();
+    public IEnumerable<Course> Courses { get; set; } = new List<Course>();
 }

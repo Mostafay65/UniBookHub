@@ -1,0 +1,79 @@
+@model UniBookHub.ViewModels.CourseViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_CollegeLayout.cshtml";
+}
+
+<!-- content-header -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                  <div class="col-sm-6">
+                    <h1 class="m-0">Add Course</h1>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-header -->
+        <!-- content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card p-3">
+            <form asp-action="Create" asp-route-LevelId="@((int)TempData["Level"])" class="col-4" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Code" class="form-label text-lg"></label>
+                    <input asp-for="Code" type="text" class="form-control" id="Code">
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label text-lg"></label>
+                    <input asp-for="Name" type="text" class="form-control" id="collage name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Instructor" class="form-label text-lg">Instructor</label>
+                    <select class="form-select" aria-label="Default select example" id="Instructor">
+                        <option selected>Instructor</option>
+                        <option value="1">Mai Ramadan</option>
+                        <option value="2">Abdelghani Adel</option>
+                        <option value="3">Mostafa Elsawy</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LevelNumber" for="Level" class="form-label text-lg"></label>
+                    <select asp-for="LevelNumber" class="form-select" aria-label="Default select example" id="Level">
+                        <option selected value="0">Level</option>
+                        @for (int i = 1; i <= (int)TempData["Levels"]; i++)
+                        {
+                            <option value="@i">Level @i</option>
+                        }
+                    </select>
+                    <span asp-validation-for="LevelNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label text-lg"></label>
+                    <textarea asp-for="Description" class="form-control" id="Course Description" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Book" class="form-label text-lg"></label>
+                    <input asp-for="Book" class="form-control" type="file" id="Book PDF">
+                    <span asp-validation-for="Book" class="text-danger"></span>
+                </div>
+                <input asp-for="CollegeId" value="@TempData["CollegeId"].ToString()" type="text" hidden>
+                <input type="submit" class="btn btn-primary pr-5 pl-5 btn-lg" value="Add"></input>
+                <a asp-controller="College" asp-action="Details" asp-route-LevelId="@(TempData["Level"].ToString())" asp-route-CollegeId="@TempData["CollegeId"].ToString()" id="btn-back" class="btn btn-outline-primary pr-5 pl-5 btn-lg">Back</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

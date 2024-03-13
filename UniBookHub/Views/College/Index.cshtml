@@ -2,36 +2,65 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+    <style>
+        .table th{
+            border-top: none;
+        }
+    </style>
 
-<h1>Colleges</h1>
 
-<p>
-    <a class="btn btn-success" asp-action="Create">Create New</a>
-</p>
-<table class="table table-hover text-center align-middle">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
-    {
-        <tr class="table-primary">
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a type="button" class="btn btn-warning flex-grow-1" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a type="button" class="btn btn-primary flex-grow-1" asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a type="button" class="btn btn-danger flex-grow-1" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<!-- content-header -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Collage</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <a asp-controller="College" asp-action="Create" class="btn btn-primary  float-sm-right">Add New Collage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-header -->
+        <!-- content -->
+        
+<section class="content">
+    <div class="container-fluid">
+        <div class="card p-3">
+            <table class="table table-hover text-center">
+                <thead>
+                <tr >
+                    <th>Name</th>
+                    <th>Number of Levels</th>
+                    <th>Number of Cources</th>
+                    <th>Operation</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.NumberOfLevels
+                        </td>
+                        <td>
+                            @item.Courses.Count()
+                        </td>
+                        <td>
+                            <a type="button" class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a type="button" class="btn btn-primary" asp-action="Details" asp-route-CollegeId="@item.ID" asp-route-LevelId="1">Details</a> |
+                            <a type="button" class="btn btn-danger " asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

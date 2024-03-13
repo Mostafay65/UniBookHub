@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Qcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,8 +48,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29sbGVnZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Course/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Course/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Course/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Course/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Course/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Home/dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9kYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Home/Privacy.cshtml]
@@ -54,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Role/AddRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZS9BZGRSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Role/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZS9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Role/Index.cshtml]
@@ -68,6 +96,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Shared/_CollegeLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Db2xsZWdlTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +116,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-5xmzxnyn2v
+[/Users/mostafayoussef/RiderProjects/UniBookHub/UniBookHub/Views/Shared/_StudentLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19TdHVkZW50TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-4uwxlqj8t6

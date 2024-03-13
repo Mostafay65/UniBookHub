@@ -13,7 +13,7 @@ public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
         builder.Property(c => c.Password).HasColumnName("Password");
         builder.Property(p=>p.Accessed).HasDefaultValue(false);
 
-        builder.HasMany(x => x.Subjects)
+        builder.HasMany(x => x.Courses)
             .WithMany(x => x.Students)
             .UsingEntity<Enrollment>();
         
